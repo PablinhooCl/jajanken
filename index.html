@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
+    <input id="userInput" type="text" placeholder="Text">
+    <button onclick="playerSelection()">JA JAN KEN!!!</button>
     <script>
 
         function getComputerChoise (){
@@ -19,9 +21,16 @@
         }
         
     };
-        function playerSelection(){
-            
-        }
+    //let input = localStorage.getItem('input')
+
+    function playerSelection() {
+        input = document.getElementById("userInput").value
+        localStorage.setItem('input', input)
+
+    };
+    function checkUserInput(){
+
+    }
     
         
     </script>
