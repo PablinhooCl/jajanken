@@ -4,34 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+            .cont1   {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin :10px ;
+            }
+    </style>
 </head>
 <body>
+    <div class="cont1">
     <input id="userInput" type="text" placeholder="Text">
-    <button onclick="playerSelection()">JA JAN KEN!!!</button>
+    <button onclick="capitalize(), playerSelection()">JA JAN KEN!!! </button><p>(rock, scissor, paper)</p>
+    </div>
     <script>
 
         function getComputerChoise (){
-        switch (Math.floor(Math.random() * 3)) {
-        case 0:
-        return 'rock';
-        case 1:
-        return 'paper';
-        case 2:
-        return 'scissors';
+            switch (Math.floor(Math.random() * 3)) {
+            case 0:
+            return 'Rock';
+            case 1:
+            return 'Paper';
+            case 2:
+            return 'Scissors';
         }
         
     };
-    //let input = localStorage.getItem('input')
-
-    function playerSelection() {
-        input = document.getElementById("userInput").value
-        localStorage.setItem('input', input)
-
+        function capitalize (){
+            input = document.getElementById("userInput").value
+            localStorage.setItem('input', input)
+            inputFix= input.toLowerCase();
+            return inputFix.charAt(0).toUpperCase()+ inputFix.slice(1);
+                
+    } ;         
+    function playerSelection() { 
+       let playerSelect= capitalize(input);
+        // input = document.getElementById("userInput").value;  
+            if (playerSelect=='Rock' || playerSelect=='Scissors' || playerSelect=='Paper') { 
+                    
+                    return playerSelect;
+                } else {
+                    alert('Try again...');
+                }
     };
-    function checkUserInput(){
-
-    }
-    
         
     </script>
     
