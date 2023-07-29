@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+            body{
+                background-color: #fba874;
+                font: Roboto;
+                font-size: 22px;
+            }
             .cont1   {
                 display: flex;
                 flex-direction: column;
@@ -12,15 +17,31 @@
                 align-items: center;
                 margin :10px ;
             }
+            .scorecont, .p1, .cpu {
+                display: flex;
+                flex-direction: row;
+                margin: 10px;
+                padding: 10px;
+                justify-content: space-between;
+            }
+            /* .scorecont { */
+                
+            /* } */
     </style>
 </head>
 <body>
     <div class="cont1">
     <input id="userInput" type="text" placeholder="Text">
-    <button onclick="capitalize(), playerSelection()">JA JAN KEN!!! </button><p>(rock, scissor, paper)</p>
+    <button onclick="capitalize(), playerSelection(), p1CpuVersus(), game()">JA JAN KEN!!! </button><p>(rock, scissor, paper)</p>
+    <div class="scorecont">
+        <div class="p1"><p>Your wins= </p> <p id="scoreP1">0</p></div>
+        <div class="cpu"><p>Cpu wins= </p><p id="scoreCpu">0</p></div>
+    </div>
     </div>
     <script>
-
+        let p1Win=0;
+        let cpuWin=0;
+        
         function getComputerChoise (){
             switch (Math.floor(Math.random() * 3)) {
             case 0:
@@ -49,6 +70,33 @@
                     alert('Try again...');
                 }
     };
+    function p1CpuVersus(){
+        let p1= capitalize(input);
+        let cpu= getComputerChoise();
+        
+        if (p1==cpu){
+            alert('..a tie..')
+        }else if((p1=='Rock' && cpu=='Scissors')||(p1=='Scissors' &&  cpu=='Paper')||(p1=='Paper' && cpu=='Rock')){
+            alert('..you win!!..')
+            return p1Win++
+        }else {
+            alert('..you lose..')
+            return cpuWin++
+        }
+        }
+    function game(){
+        if (cpuWin==5){
+            alert('..Sadly you lose..')
+            return cpuWin=0 , p1Win=0
+        } else if (p1Win==5){
+            alert('..Gratz, finally you win..')
+            return cpuWin=0 , p1Win=0
+             
+        }
+        document.getElementById("scoreP1").innerHTML = p1Win;
+        document.getElementById("scoreCpu").innerHTML = cpuWin;
+    }
+    
         
     </script>
     
