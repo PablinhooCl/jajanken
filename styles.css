@@ -1,0 +1,40 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.versus{
+    display: flex;
+    flex-direction: row;
+    
+}
+button{
+    margin: 50px;
+}
+.icons{
+    width: 200px;
+}
+.iconContainer {
+    display: flex;
+
+}
+
+body{
+    background-color: #fba874;
+    font: Roboto;
+    font-size: 22px;
+}
+.cont1   {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin :10px ;
+}
+.scorecont, .p1, .cpu {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    padding: 10px;
+    justify-content: space-between;
+}

@@ -4,101 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-            body{
-                background-color: #fba874;
-                font: Roboto;
-                font-size: 22px;
-            }
-            .cont1   {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                margin :10px ;
-            }
-            .scorecont, .p1, .cpu {
-                display: flex;
-                flex-direction: row;
-                margin: 10px;
-                padding: 10px;
-                justify-content: space-between;
-            }
-            /* .scorecont { */
-                
-            /* } */
-    </style>
+    
+    <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
+
+
 <body>
-    <div class="cont1">
-    <input id="userInput" type="text" placeholder="Text">
-    <button onclick="capitalize(), playerSelection(), p1CpuVersus(), game()">JA JAN KEN!!! </button><p>(rock, scissor, paper)</p>
-    <div class="scorecont">
-        <div class="p1"><p>Your wins= </p> <p id="scoreP1">0</p></div>
-        <div class="cpu"><p>Cpu wins= </p><p id="scoreCpu">0</p></div>
+
+
+    <div class="header">
+
+        <div class="versus"><img src="resources/vs.png" alt="Versus"></div>
+
+        <div class="iconContainer">
+            <button id="piedra"><img class="icons" src=resources/fist.png alt="Rock"></button>
+            <button id="papel"><img class="icons" src="resources/five.png" alt="Paper"></button>
+            <button id="tijera"><img class="icons" src="resources/two.png" alt=" Scissor"></button>
+        </div>
+   
+
+        <div id="resultadoVersus"></div>
     </div>
-    </div>
-    <script>
-        let p1Win=0;
-        let cpuWin=0;
-        
-        function getComputerChoise (){
-            switch (Math.floor(Math.random() * 3)) {
-            case 0:
-            return 'Rock';
-            case 1:
-            return 'Paper';
-            case 2:
-            return 'Scissors';
-        }
-        
-    };
-        function capitalize (){
-            input = document.getElementById("userInput").value
-            localStorage.setItem('input', input)
-            inputFix= input.toLowerCase();
-            return inputFix.charAt(0).toUpperCase()+ inputFix.slice(1);
-                
-    } ;         
-    function playerSelection() { 
-       let playerSelect= capitalize(input);
-        // input = document.getElementById("userInput").value;  
-            if (playerSelect=='Rock' || playerSelect=='Scissors' || playerSelect=='Paper') { 
-                    
-                    return playerSelect;
-                } else {
-                    alert('Try again...');
-                }
-    };
-    function p1CpuVersus(){
-        let p1= capitalize(input);
-        let cpu= getComputerChoise();
-        
-        if (p1==cpu){
-            alert('..a tie..')
-        }else if((p1=='Rock' && cpu=='Scissors')||(p1=='Scissors' &&  cpu=='Paper')||(p1=='Paper' && cpu=='Rock')){
-            alert('..you win!!..')
-            return p1Win++
-        }else {
-            alert('..you lose..')
-            return cpuWin++
-        }
-        }
-    function game(){
-        if (cpuWin==5){
-            alert('..Sadly you lose..')
-            return cpuWin=0 , p1Win=0
-        } else if (p1Win==5){
-            alert('..Gratz, finally you win..')
-            return cpuWin=0 , p1Win=0
-             
-        }
-        document.getElementById("scoreP1").innerHTML = p1Win;
-        document.getElementById("scoreCpu").innerHTML = cpuWin;
-    }
-    
-        
-    </script>
-    
+   <script src="js-file.js"></script>
 </body>
 </html>
