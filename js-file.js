@@ -11,47 +11,13 @@
             return 'Scissor';
         }
     };
-       var p1;
-        p1ChoseRock =function p1Rock(){
-            let p1='Rock';
-            console.log(p1)
-            return p1
-        }
-        p1ChosePaper= function p1Paper(){
-            let p1='Paper';
-           
-            // return  p1Paper(p1)
-        }
-        p1ChoseScissor= function p1Scissor(){
-            let p1='Scissor';
-            console.log(p1)
-            return p1
-        }
-
- 
-        
-
-
-    let piedra1= document.getElementById('piedra');
-    window.addEventListener("DOMContentLoaded", (event) => {
     
-    piedra1.addEventListener('click',() => {    
-         p1ChoseRock();
-         p1CpuVersus();
-           
-   });
-    document.getElementById("papel").addEventListener('click',() => {    
-        p1ChosePaper();
-        p1CpuVersus();
-            
-    });
-    document.getElementById("tijera").addEventListener('click',() => {    
-        p1ChoseScissor();  
-        p1CpuVersus();
+
+    
+    window.addEventListener("DOMContentLoaded", (event) => {
+    })
+    function playRound(p1){ 
           
-    })});
-    function p1CpuVersus(){ 
-        
         let cpu= getComputerChoise();
         console.log(p1+" p1");
         console.log(cpu+" cpu");
@@ -65,3 +31,4 @@
             cpuWin++;
         }
         }
+
